@@ -39,7 +39,7 @@ class CardSwiper extends StatelessWidget {
                 // Imagen con efecto de aparición gradual
                 placeholder: AssetImage(
                     'assets/no-image.jpg'), // Imagen de carga hasta que se carga la real
-                image: NetworkImage(
+                image: AssetImage(
                     'https://via.placeholder.com/300x400'), // Imagen real desde una URL
               ),
             ),

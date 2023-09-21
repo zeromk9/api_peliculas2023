@@ -16,8 +16,7 @@ class DetailsScreen extends StatelessWidget {
         SliverList(
             delegate: SliverChildListDelegate.fixed([
           _PosterAndTitle(),
-          _PosterAndTitle(),
-          _PosterAndTitle(),
+          _Overview(),
         ]))
       ],
     ));
@@ -109,5 +108,21 @@ class _PosterAndTitle extends StatelessWidget {
             ))
           ],
         ));
+  }
+}
+
+class _Overview extends StatelessWidget {
+  const _Overview({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: const Text(
+        'Non et adipisicing do cillum. Esse minim reprehenderit proident magna adipisicing cupidatat. Sint duis dolore cupidatat reprehenderit ea sint deserunt Lorem adipisicing culpa mollit occaecat labore amet. Nisi aute laboris commodo est commodo reprehenderit anim magna minim. Nostrud minim deserunt aliquip minim. Pariatur eiusmod cillum ad deserunt nulla eiusmod sint do incididunt nostrud.',
+        textAlign: TextAlign.justify,
+        style: TextStyle(fontSize: 15),
+      ),
+    );
   }
 }

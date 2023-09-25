@@ -8,7 +8,7 @@ class MovieSlider extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Container(
         width: double.infinity,
-        height: size.height * 0.3,
+        height: size.height * 0.35,
         color: Colors.red,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Padding(
@@ -30,13 +30,13 @@ class MovieSlider extends StatelessWidget {
 }
 
 class _MoviePoster extends StatelessWidget {
-  const _MoviePoster({super.key});
+  const _MoviePoster();
 
   @override
   Widget build(BuildContext context) {
     return Container(
         width: 130,
-        height: 210,
+        height: 190,
         margin: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(children: [
           GestureDetector(

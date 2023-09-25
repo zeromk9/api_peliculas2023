@@ -6,8 +6,8 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //recibir argumentos de otra pantalla:
-    final String movie =
-        ModalRoute.of(context)?.settings.toString() ?? 'Sin Nombre';
+    //final String movie =
+    ModalRoute.of(context)?.settings.toString() ?? 'Sin Nombre';
     return const Scaffold(
         body: CustomScrollView(
       //WIDGET CON COMPARTIMIENTOS
@@ -17,6 +17,7 @@ class DetailsScreen extends StatelessWidget {
             delegate: SliverChildListDelegate.fixed([
           _PosterAndTitle(),
           _Overview(),
+          _ActorSlider(),
         ]))
       ],
     ));
@@ -24,7 +25,7 @@ class DetailsScreen extends StatelessWidget {
 }
 
 class _CustomAppBar extends StatelessWidget {
-  const _CustomAppBar({super.key});
+  const _CustomAppBar();
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,7 @@ class _CustomAppBar extends StatelessWidget {
           child: const Text('movie.title'),
         ),
         background: const FadeInImage(
-          placeholder: AssetImage('assets/loaging.git'),
+          placeholder: AssetImage('assets/loading.gif'),
           image: AssetImage('assets/no-image.jpg'),
         ),
       ),
@@ -54,7 +55,7 @@ class _CustomAppBar extends StatelessWidget {
 }
 
 class _PosterAndTitle extends StatelessWidget {
-  const _PosterAndTitle({super.key});
+  const _PosterAndTitle();
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +113,7 @@ class _PosterAndTitle extends StatelessWidget {
 }
 
 class _Overview extends StatelessWidget {
-  const _Overview({super.key});
+  const _Overview();
 
   @override
   Widget build(BuildContext context) {
@@ -124,5 +125,34 @@ class _Overview extends StatelessWidget {
         style: TextStyle(fontSize: 15),
       ),
     );
+  }
+}
+
+class _ActorSlider extends StatelessWidget {
+  const _ActorSlider();
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return Container(
+        width: double.infinity,
+        height: size.height * 0.3,
+        color: Colors.cyan,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Text('Actores',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                )),
+          ),
+          Expanded(
+              child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: 20,
+            itemBuilder: (_, int index) => const _ActorSlider(),
+          ))
+        ]));
   }
 }
